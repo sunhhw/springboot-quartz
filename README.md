@@ -7,3 +7,6 @@
 # 使用介绍
 1.postman包中是测试用例  
 2.sql是数据库表结构，里面有点测试数据未删除，可手动删除
+# 参考
+1.主要为若依前后端分离版本  
+2.quartz配置 https://www.w3cschool.cn/quartz_doc/quartz_doc-ml8e2d9m.html
