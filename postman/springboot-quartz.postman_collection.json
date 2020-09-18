@@ -1,0 +1,168 @@
+{
+	"info": {
+		"_postman_id": "77426054-c5a9-4433-8186-6325f8417992",
+		"name": "springboot-quartz",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "查询所有定时任务列表",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{quartz}}/quartz/monitor/job/list",
+					"host": [
+						"{{quartz}}"
+					],
+					"path": [
+						"quartz",
+						"monitor",
+						"job",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "根据任务ID查找定时任务信息",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{quartz}}/quartz/monitor/job/4",
+					"host": [
+						"{{quartz}}"
+					],
+					"path": [
+						"quartz",
+						"monitor",
+						"job",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "新增一个定时任务",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jobName\":\"helloName1\",\n    \"jobGroup\":\"helloGroup1\",\n    \"invokeTarget\":\"com.shw.quartz.task.HelloTask\",\n    \"cronExpression\":\"0/2 * * * * ?\",\n    \"misfirePolicy\":\"0\",\n    \"concurrent\":\"\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{quartz}}/quartz/monitor/job",
+					"host": [
+						"{{quartz}}"
+					],
+					"path": [
+						"quartz",
+						"monitor",
+						"job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改启动状态(启动/暂停)默认暂停",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jobId\":\"4\",\n    \"jobName\":\"helloName1\",\n    \"jobGroup\":\"helloGroup1\",\n    \"status\":\"1\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{quartz}}/quartz/monitor/job/changeStatus",
+					"host": [
+						"{{quartz}}"
+					],
+					"path": [
+						"quartz",
+						"monitor",
+						"job",
+						"changeStatus"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "修改定时任务",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "删除定时任务",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{quartz}}/quartz/monitor/job/delete/1",
+					"host": [
+						"{{quartz}}"
+					],
+					"path": [
+						"quartz",
+						"monitor",
+						"job",
+						"delete",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "立即执行一次，只执行一次",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"jobId\":\"5\",\n    \"jobName\":\"helloName\",\n    \"jobGroup\":\"helloGroup\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{quartz}}/quartz/monitor/job/run",
+					"host": [
+						"{{quartz}}"
+					],
+					"path": [
+						"quartz",
+						"monitor",
+						"job",
+						"run"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
